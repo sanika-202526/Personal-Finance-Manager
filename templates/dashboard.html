@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Financial Analytics Dashboard</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 15px;
+            background: #183153;
+            margin-bottom: 25px;
+            border-radius: 10px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover {
+            background: #2878c8;
+        }
+
+        .welcome {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .welcome a {
+            display: inline-block;
+            margin: 8px;
+            padding: 12px 20px;
+            background: #2878c8;
+            color: white;
+            text-decoration: none;
+            border-radius: 7px;
+        }
+
+        .welcome a:hover {
+            background: #183153;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<header>
+    <h1>Personal Finance Manager</h1>
+    <p>Welcome, {{ username }}!</p>
+</header>
+
+<main>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+
+        <a href="{{ url_for('dashboard') }}">
+            Dashboard
+        </a>
+
+        <a href="{{ url_for('transactions') }}">
+            Transactions
+        </a>
+
+        <a href="{{ url_for('budget') }}">
+            Budget Management
+        </a>
+
+        <a href="{{ url_for('reports') }}">
+            Financial Reports
+        </a>
+
+        <a href="{{ url_for('export_csv') }}">
+            Download CSV
+        </a>
+
+        <a href="{{ url_for('logout') }}">
+            Logout
+        </a>
+
+    </nav>
+
+
+    <!-- Financial Overview -->
+    <h2>Financial Overview</h2>
+
+    <p>Here is your personal financial summary.</p>
+
+    <div class="dashboard-cards">
+
+        <div class="finance-card income-card">
+            <h3>Total Income</h3>
+            <h2>₹{{ "%.2f"|format(total_income) }}</h2>
+        </div>
+
+        <div class="finance-card expense-card">
+            <h3>Total Expenses</h3>
+            <h2>₹{{ "%.2f"|format(total_expenses) }}</h2>
+        </div>
+
+        <div class="finance-card balance-card">
+            <h3>Available Balance</h3>
+            <h2>₹{{ "%.2f"|format(balance) }}</h2>
+        </div>
+
+    </div>
+
+
+    <!-- Financial Analytics -->
+    <div class="analytics-section">
+
+        <h2>Financial Analytics</h2>
+
+        <div class="chart-container">
+
+            <div class="chart-box">
+
+                <h3>Expense Distribution</h3>
+
+                {% if expense_chart %}
+
+                    <img
+                    src="{{ url_for('static', filename='images/' + expense_chart) }}"
+                    alt="Expense category pie chart">
+
+                {% else %}
+
+                    <p>No expense data available yet.</p>
+
+                {% endif %}
+
+            </div>
+
+
+            <div class="chart-box">
+
+                <h3>Monthly Income vs Expenses</h3>
+
+                {% if monthly_chart %}
+
+                    <img
+                    src="{{ url_for('static', filename='images/' + monthly_chart) }}"
+                    alt="Monthly income and expense bar chart">
+
+                {% else %}
+
+                    <p>No monthly data available yet.</p>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Manage Finances -->
+    <div class="welcome">
+
+        <h3>Manage Your Finances</h3>
+
+        <a href="{{ url_for('transactions') }}">
+            Manage Income & Expenses
+        </a>
+
+        <a href="{{ url_for('budget') }}">
+            Manage Monthly Budget
+        </a>
+
+        <a href="{{ url_for('reports') }}">
+            View Financial Reports
+        </a>
+
+        <a href="{{ url_for('export_csv') }}">
+            Download Transactions CSV
+        </a>
+
+    </div>
+
+</main>
+
+</body>
+</html>

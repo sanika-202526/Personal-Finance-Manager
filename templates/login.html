@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Personal Finance Manager</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #192b4d, #7566d9);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        main {
+            width: 100%;
+            max-width: 480px;
+            padding: 0;
+        }
+
+        .login-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+
+        .login-icon {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .login-card h2 {
+            color: #263b67;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .login-card .subtitle {
+            color: #748198;
+            font-size: 14px;
+        }
+
+        .login-card form {
+            box-shadow: none;
+            padding: 0;
+            margin: 28px auto 20px;
+        }
+
+        .login-card input {
+            padding: 15px;
+        }
+
+        .login-card button {
+            width: 100%;
+            margin-top: 8px;
+            background: #263b67;
+        }
+
+        .login-card button:hover {
+            background: #7566d9;
+        }
+
+        .flash-message {
+            background: #fff0f0;
+            color: #c0392b;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .register-text {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .register-text a,
+        .home-link {
+            color: #7566d9;
+            font-weight: 600;
+        }
+
+        .home-link {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 480px) {
+            .login-card {
+                padding: 28px 22px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+<main>
+
+    <div class="login-card">
+
+        <div class="login-icon">💰</div>
+
+        <h2>Welcome Back!</h2>
+
+        <p class="subtitle">
+            Login to access your personal financial dashboard.
+        </p>
+
+        {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+                <div class="flash-message">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endwith %}
+
+        <form method="POST">
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                required>
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Enter your password"
+                required>
+
+            <button type="submit">
+                Login to Dashboard
+            </button>
+
+        </form>
+
+        <p class="register-text">
+            Don't have an account?
+            <a href="{{ url_for('register') }}">
+                Register here
+            </a>
+        </p>
+
+        <a class="home-link" href="{{ url_for('home') }}">
+            ← Back to Home
+        </a>
+
+    </div>
+
+</main>
+
+</body>
+</html>

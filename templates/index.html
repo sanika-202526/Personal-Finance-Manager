@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Personal Finance Manager</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>Personal Finance Manager</h1>
+    </header>
+
+    <main>
+
+        <h2>Manage Your Money Smarter!</h2>
+
+        <p>
+            Track your income, manage expenses,
+            monitor budgets and understand your
+            financial habits in one place.
+        </p>
+
+        <div class="welcome">
+            <h3>Welcome to Your Financial Dashboard</h3>
+            <p>Take control of your finances today.</p>
+            <div class="home-buttons">
+            <a href="{{ url_for('register') }}">Create Account</a>
+            <a href="{{ url_for('login') }}">Login</a>
+</div>
+        </div>
+
+    </main>
+
+</body>
+</html>

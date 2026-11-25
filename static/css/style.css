@@ -1,0 +1,408 @@
+
+/* =================================
+   PERSONAL FINANCE MANAGER
+   Professional Global Styling
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #263b67;
+    --primary-dark: #192b4d;
+    --accent: #7566d9;
+    --success: #15966b;
+    --danger: #df5b65;
+    --info: #3986cf;
+    --background: #f4f6fc;
+    --white: #ffffff;
+    --text: #263247;
+    --muted: #748198;
+    --border: #e5e9f2;
+    --shadow: 0 5px 22px rgba(34, 48, 80, 0.07);
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* HEADER */
+
+header {
+    background: linear-gradient(120deg, #192b4d, #354f83);
+    color: white;
+    padding: 25px 8%;
+    box-shadow: var(--shadow);
+}
+
+header h1 {
+    font-size: 27px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+header p {
+    color: #dce5fa;
+    margin-top: 5px;
+}
+
+/* MAIN CONTENT */
+
+main {
+    padding: 55px 8%;
+    text-align: center;
+    max-width: 1500px;
+    margin: auto;
+}
+
+main h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+    color: var(--primary-dark);
+}
+
+main p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--muted);
+}
+
+/* NAVIGATION */
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 15px;
+    background: var(--white);
+    margin-bottom: 35px;
+    border-radius: 13px;
+    box-shadow: var(--shadow);
+}
+
+.navbar a {
+    color: var(--primary);
+    text-decoration: none;
+    padding: 10px 17px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    background: #edf0ff;
+    color: var(--accent);
+    text-decoration: none;
+}
+
+/* WELCOME SECTION */
+
+.welcome {
+    background: var(--white);
+    padding: 35px;
+    margin-top: 40px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+}
+
+.welcome h3 {
+    color: var(--primary);
+    margin-bottom: 18px;
+    font-size: 22px;
+}
+
+/* FORMS */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 25px auto;
+    max-width: 450px;
+    background: var(--white);
+    padding: 28px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    font-size: 15px;
+    background: var(--white);
+    color: var(--text);
+    font-family: inherit;
+    outline: none;
+    transition: 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(117, 102, 217, 0.12);
+}
+
+label {
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text);
+}
+
+/* BUTTONS */
+
+button {
+    padding: 13px 20px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: var(--accent);
+    transform: translateY(-1px);
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* TABLES */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+th,
+td {
+    padding: 15px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+}
+
+th {
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+}
+
+tr:hover {
+    background: #f6f7ff;
+}
+
+hr {
+    margin: 30px 0;
+    border: 0;
+    border-top: 1px solid var(--border);
+}
+
+/* DASHBOARD CARDS */
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin: 35px 0;
+}
+
+.finance-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: left;
+    box-shadow: var(--shadow);
+    transition: 0.3s;
+}
+
+.finance-card:hover {
+    transform: translateY(-4px);
+}
+
+.finance-card h3 {
+    color: var(--muted);
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.finance-card h2 {
+    font-size: 28px;
+    margin-bottom: 0;
+}
+
+.income-card {
+    border-left: 5px solid var(--success);
+}
+
+.expense-card {
+    border-left: 5px solid var(--danger);
+}
+
+.balance-card {
+    border-left: 5px solid var(--info);
+}
+
+/* ANALYTICS */
+
+.analytics-section {
+    margin-top: 45px;
+}
+
+.chart-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.chart-box {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    min-width: 0;
+}
+
+.chart-box h3 {
+    color: var(--primary);
+    font-size: 18px;
+}
+
+.chart-box img {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+/* REPORT AND BUDGET CARDS */
+
+.report-card,
+.budget-card {
+    background: var(--white);
+    padding: 25px;
+    margin: 22px 0;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.income {
+    color: var(--success);
+    font-weight: 700;
+}
+
+.expense {
+    color: var(--danger);
+    font-weight: 700;
+}
+
+.savings {
+    color: var(--info);
+    font-weight: 700;
+}
+
+/* ACTION LINKS */
+
+.action-link,
+.welcome a {
+    display: inline-block;
+    margin: 8px;
+    padding: 12px 20px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 9px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.action-link:hover,
+.welcome a:hover {
+    background: var(--accent);
+    text-decoration: none;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 900px) {
+    main {
+        padding: 40px 5%;
+    }
+
+    .dashboard-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-cards,
+    .chart-container {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        padding: 22px 5%;
+    }
+
+    main h2 {
+        font-size: 25px;
+    }
+
+    .navbar {
+        gap: 5px;
+    }
+
+    .navbar a {
+        padding: 9px 11px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .finance-card {
+        padding: 23px;
+    }
+
+    .welcome {
+        padding: 22px;
+    }
+}

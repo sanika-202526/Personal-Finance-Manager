@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register | Personal Finance Manager</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #192b4d, #7566d9);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        main {
+            width: 100%;
+            max-width: 480px;
+            padding: 0;
+        }
+
+        .register-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+
+        .register-icon {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .register-card h2 {
+            color: #263b67;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .register-card .subtitle {
+            color: #748198;
+            font-size: 14px;
+        }
+
+        .register-card form {
+            box-shadow: none;
+            padding: 0;
+            margin: 28px auto 20px;
+        }
+
+        .register-card input {
+            padding: 15px;
+        }
+
+        .register-card button {
+            width: 100%;
+            margin-top: 8px;
+            background: #263b67;
+        }
+
+        .register-card button:hover {
+            background: #7566d9;
+        }
+
+        .flash-message {
+            background: #fff0f0;
+            color: #c0392b;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .login-text {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .login-text a,
+        .home-link {
+            color: #7566d9;
+            font-weight: 600;
+        }
+
+        .home-link {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 480px) {
+            .register-card {
+                padding: 28px 22px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+<main>
+
+    <div class="register-card">
+
+        <div class="register-icon">💰</div>
+
+        <h2>Create Your Account</h2>
+
+        <p class="subtitle">
+            Start managing your finances today.
+        </p>
+
+        {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+                <div class="flash-message">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endwith %}
+
+        <form method="POST">
+
+            <input
+                type="text"
+                name="username"
+                placeholder="Enter your name"
+                required>
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                required>
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Create password (8+ characters)"
+                minlength="8"
+                required>
+
+            <button type="submit">
+                Create Account
+            </button>
+
+        </form>
+
+        <p class="login-text">
+            Already have an account?
+            <a href="{{ url_for('login') }}">
+                Login here
+            </a>
+        </p>
+
+        <a class="home-link" href="{{ url_for('home') }}">
+            ← Back to Home
+        </a>
+
+    </div>
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+.venv/
+venv/
+
+# Local database
+finance.db
+
+# Environment variables and secrets
+.env
+
+# Editor settings
+.vscode/
